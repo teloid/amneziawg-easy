@@ -1,6 +1,6 @@
 services:
-  vpnawg:
-    image: vpnawg
+  amneziawg_easy:
+    image: amneziawg_easy
     build: .
     privileged: true
     env_file: .env
