@@ -8,8 +8,8 @@ services:
       - /lib/modules:/lib/modules
       - /var/conf_amnezia/:/etc/amnezia/amneziawg/
     command: bash -c "
-             apt-get install -y amneziawg*
-             && node server.js"
+      apt-get install -y amneziawg*
+      && node server.js"
     ports:
       - "51620:51620/udp"
       - "127.0.0.1:51621:51621/tcp"
