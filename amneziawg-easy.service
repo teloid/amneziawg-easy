@@ -1,0 +1,13 @@
+[Unit]
+Description=AmneziaWG-easy
+After=docker.service
+Requires=docker.service
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+ExecStart=/bin/bash -c "docker compose -f ~/amnezia/docker-compose.yaml up --detach"
+ExecStop=/bin/bash -c "docker compose -f ~/amnezia/docker-compose.yaml stop"
+
+[Install]
+WantedBy=multi-user.target

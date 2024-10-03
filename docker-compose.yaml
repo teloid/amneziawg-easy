@@ -1,0 +1,23 @@
+services:
+  vpnawg:
+    image: vpnawg
+    build: .
+    privileged: true
+    env_file: .env
+    volumes:
+      - /lib/modules:/lib/modules
+      - /var/conf_amnezia/:/etc/amnezia/amneziawg/
+    command: bash -c "
+             apt-get install -y amneziawg*
+             && node server.js"
+    ports:
+      - "51620:51620/udp"
+      - "127.0.0.1:51621:51621/tcp"
+    restart: unless-stopped
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+      # - NET_RAW # ⚠️ Uncomment if using Podman
+    sysctls:
+      - net.ipv4.ip_forward=1
+      - net.ipv4.conf.all.src_valid_mark=1
