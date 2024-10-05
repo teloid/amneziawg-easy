@@ -15,8 +15,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-image-name:$(date +%s)
-    - name: push
+      run: docker build . --file Dockerfile --tag ghcr.io/data-bike/amneziawg-easy:amd64 
+    - name: Log in to GitHub Container Registry
+      uses: docker/login-action@v1
+      with:
+        registry: ghcr.io
+        username: ${{ github.repository_owner }}
+        password: ${{ secrets.CR_PAT }}
+    - name: Build and push Docker image
       uses: docker/build-push-action@v2
       with:
         context: .
@@ -24,4 +30,4 @@ jobs:
         platforms: linux/amd64
         push: true
         images: <user>/<repo>
-        tags: ghcr.io/data-bike/amneziawg-easy:amd64
+        tags: ghcr.io/data-bike/amneziawg-easy:amd64 
