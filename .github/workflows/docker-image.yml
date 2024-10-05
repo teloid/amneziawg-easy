@@ -24,4 +24,4 @@ jobs:
         platforms: linux/amd64
         push: true
         images: <user>/<repo>
-        tags: ghcr.io/${{ github.repository_owner }}/amneziawg-easy:amd64
+        tags: ghcr.io/data-bike/amneziawg-easy:amd64
