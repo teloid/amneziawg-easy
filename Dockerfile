@@ -4,7 +4,7 @@ RUN sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/debian.s
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get dist-upgrade
-RUN apt-cache search linux-headers
+RUN apt-cache search linux-headers # fetching headers for the next command (issues on raspi)
 RUN apt-get install -y git software-properties-common python3-launchpadlib gnupg2 linux-headers-6.1.0-21-arm64 zstd sudo
 RUN add-apt-repository ppa:amnezia/ppa
 RUN apt-get -y update
