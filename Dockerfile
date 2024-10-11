@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:noble
 ARG DEBIAN_FRONTEND=noninteractive
 RUN sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
 RUN apt-get -y update
