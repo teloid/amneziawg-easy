@@ -12,7 +12,7 @@ RUN apt-get -y upgrade
 RUN echo "net.ipv4.ip_forward = 1" > /etc/sysctl.d/00-amnezia.conf
 RUN echo net.ipv4.ip_forward=1 >> /etc/sysctl.conf
 RUN echo net.ipv4.conf.all.src_valid_mark=1 >> /etc/sysctl.conf
-RUN sysctl -p
+# RUN sysctl -p
 RUN mkdir /app
 RUN cd /app
 RUN cd /app && git clone https://github.com/amnezia-vpn/amneziawg-tools.git
