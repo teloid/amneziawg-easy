@@ -1,8 +1,9 @@
-FROM ubuntu:latest
+FROM ubuntu:noble
 ARG DEBIAN_FRONTEND=noninteractive
 RUN sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
 RUN apt-get -y update
 RUN apt-get -y upgrade
+RUN apt-get dist-upgrade
 RUN apt-get install -y git software-properties-common python3-launchpadlib gnupg2 linux-headers-$(uname -r) zstd sudo
 RUN add-apt-repository ppa:amnezia/ppa
 RUN apt-get -y update
