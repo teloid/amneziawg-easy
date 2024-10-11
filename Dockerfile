@@ -1,6 +1,6 @@
 FROM debian:latest
 ARG DEBIAN_FRONTEND=noninteractive
-RUN sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/ubuntu.sources
+RUN sed -i 's/^Types: deb$/Types: deb deb-src/' /etc/apt/sources.list.d/debian.sources
 RUN apt-get -y update
 RUN apt-get -y upgrade
 RUN apt-get dist-upgrade
